@@ -52,7 +52,12 @@ public class OverviewActivity extends BaseMvpActivity<OverviewContract.Presenter
     //TODO: complete this method
     @Override
     public void goToCatDetail(Cat cat) {
-        startActivity(DetailActivity.getStartIntent(this, cat));
+
+        catImageView.animate()
+                .alpha(0)
+                .translationX(100)
+                .setDuration(200)
+                .withEndAction(() -> startActivity(DetailActivity.getStartIntent(this, cat)));
     }
 
     @Override
